@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コネクト・フォー</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="connect-four.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h1>コネクト・フォー</h1>
+        <p>
+            1P：<span class="player-1">●</span>
+            2P：<span class="player-2">●</span>
+            3P：<span class="player-3">●</span>
+            4P：<span class="player-4">●</span>
+        </p>
+        <p>基本ルール：順番に落として縦横斜めに4つ繋げたら勝ち！</p>
+        <div class="flex_row">
+            <form>
+                <div class="flex_column">
+                    <div class="flex_row">
+                        <p>横幅：<input type="number" id="width" value="7" min="5" max="20">マス</p>
+                    </div>
+                    <div class="flex_row">
+                        <p>高さ：<input type="number" id="height" value="6" min="5" max="20">マス</p>
+                    </div>
+                </div>
+                <div class="flex_column">
+                    <p>人数：
+                        <select id="players">
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        人
+                    </p>
+                </div>
+                <div class="flex_column">
+                    <p>勝利条件：
+                        <select id="num-to-win">
+                            <option value="3">3</option>
+                            <option value="4" selected>4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        個
+                    </p>
+                </div>
+
+                <button type="submit" id="reset">リセットして反映</button>
+            </form>
+        </div>
+        <div class="flex_row">
+            <p>1P：<select name="iscom"></select></p>
+            <p>2P：<select name="iscom"></select></p>
+            <p>3P：<select name="iscom" disabled></select></p>
+            <p>4P：<select name="iscom" disabled></select></p>
+        </div>
+        <p id="info"></p>
+        <table id="field">
+        </table>
+    </div>
+</body>
+
+</html>

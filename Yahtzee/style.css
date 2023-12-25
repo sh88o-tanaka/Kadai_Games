@@ -1,0 +1,321 @@
+@charset "utf-8";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 20px;
+    border: solid gray;
+    border-width: 0 1px;
+    width: fit-content;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.flex {
+    display: flex;
+    gap: 10px;
+}
+
+#dice-field {
+    position: relative;
+    width: 60vmin;
+    height: 60vmin;
+    border: 1px solid black;
+    background-color: rgb(30 50 191);
+}
+
+.dice {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.no-0 {
+    top: 37.5%;
+    left: 12.5%;
+}
+
+.no-1 {
+    top: 62.5%;
+    left: 12.5%;
+}
+
+.no-2 {
+    top: 50%;
+    left: 37.5%;
+}
+
+.no-3 {
+    top: 37.5%;
+    left: 62.5%;
+}
+
+.no-4 {
+    top: 62.5%;
+    left: 62.5%;
+}
+
+.keep {
+    width: 20%;
+    height: 20%;
+    top: 0;
+}
+
+.keep.k-0 {
+    left: 0;
+}
+
+.keep.k-1 {
+    left: 20%;
+}
+
+.keep.k-2 {
+    left: 40%;
+}
+
+.keep.k-3 {
+    left: 60%;
+}
+
+.keep.k-4 {
+    left: 80%;
+}
+
+.area {
+    border: 1px solid #00000000;
+    position: absolute;
+    z-index: 0;
+    background-color: rgb(12 5 105);
+    color: white;
+    padding: 5px;
+    background-clip: padding-box;
+}
+
+table {
+    border-spacing: 0;
+}
+
+th,
+td {
+    border: solid black;
+    border-width: 1px 1px 0 1px;
+}
+
+td {
+    width: 4rem;
+}
+td p.bonus-border {
+    font-size: 0.85rem;
+}
+
+thead th.now-player {
+    background-color: yellow;
+}
+
+tr>td:not(:last-child) {
+    border-right-width: 0;
+}
+
+tbody {
+    margin: 5px;
+    padding: 5px;
+}
+
+tr:last-child>* {
+    border-bottom-width: 2px;
+}
+
+tr>* {
+    padding: 5px;
+}
+
+tbody td {
+    text-align: center;
+    font-weight: 200;
+}
+
+td.undecided {
+    color: #999999;
+}
+
+td.undecided.clickable:hover {
+    background-color: pink;
+}
+
+col.player.turn {
+    background-color: yellow;
+}
+
+@keyframes hands-viewing {
+    0% {
+        opacity: 0;
+        top: 12.5%;
+    }
+
+    10% {
+        opacity: 1;
+        top: 25%;
+    }
+
+    90% {
+        opacity: 1;
+        top: 25%;
+    }
+
+    100% {
+        opacity: 0;
+        top: 12.5%;
+    }
+}
+
+#view-hands {
+    position: absolute;
+    top: 25%;
+    left: 0%;
+    right: 0%;
+    opacity: 0;
+    font-size: 2rem;
+    text-align: center;
+    color : white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(88, 0, 139);
+}
+
+#view-hands.animate {
+    animation-duration: 2s;
+    animation-name: hands-viewing;
+}
+
+#diceroll, #rule-button {
+    align-self: center;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    border: 0;
+    border-radius: 50vmin;
+    background-color: blueviolet;
+    color: white;
+    transition: all .1s;
+}
+
+#diceroll:hover, #rule-button:hover {
+    filter: brightness(150%);
+}
+
+#diceroll:disabled {
+    filter: brightness(50%);
+}
+
+#rule-background {
+    position: fixed;
+    width : 0;
+    height : 0;
+    top : 0;
+    left : 0;
+    background-color: #000000;
+    z-index: 2;
+    opacity : 0;
+    transition: opacity 0.3s, width 0.3s step-end, height 0.3s step-end;
+}
+
+#rule-background.visible {
+    width : 100vw;
+    height : 100vh;
+    opacity : 0.5;
+    transition: opacity 0.3s, width 0.3s step-start, height 0.3s step-start;
+}
+
+#rule {
+    overflow-y: scroll;
+    position: absolute;
+    background-color: white;
+    top : 110%;
+    max-height : 0;
+    padding-left : 15px;
+    padding-right : 15px;
+    left:5%;
+    right:5%;
+    bottom : 0;
+    z-index : 2;
+    transition: top 0.2s ease-in, max-height 0.2s step-end,border 0.2s step-start, padding 0.2s step-start;
+}
+#rule.visible {
+    top:10%;
+    padding: 15px;
+    padding-bottom : 40%;
+    border: 1px solid black;
+    max-height: 100vh;
+    transition: top 0.2s ease-in, max-height 0.2s ease-in,border 0.2s step-end, padding 0.2s step-end;
+}
+#rule h2 {
+    margin-top : 1rem;
+    margin-bottom : 0.25rem;
+    border-bottom: 1px dotted black;
+    vertical-align: bottom;
+}
+#rule small {
+    display: block;
+    margin : 10px 0;
+}
+#rule ol {
+    margin : 0 1.5rem;
+}
+#rule ol > li {
+    margin : 0.5rem 0;
+}
+
+#rule dl {
+    padding: 0 1rem;
+}
+#rule dl dt {
+    padding : 5px;
+    background-color: rgb(255, 221, 209);
+    margin-bottom: 5px;
+}
+
+#rule dl dt > h3::before {
+    content : "+";
+    display: inline-block;
+    margin-right : 15px;
+}
+
+#rule dl dd {
+    margin : 0.5rem 0;
+    height: fit-content;
+    overflow-y: hidden;
+    display : none;
+    padding-left: 1rem;
+}
+
+#rule dl dd > div > span {
+    vertical-align: middle;
+}
+#rule dl dd > div > span > img {
+    width : 15%;
+    max-width: 100px;
+    vertical-align: inherit;
+}
+
+#rule-button {
+    position: fixed;
+    bottom : 0;
+    left : 78%;
+    border-radius: 3vmin 3vmin 0 0;
+    font-size: 2rem;
+    padding-bottom : 7px;
+    z-index: 3;
+}

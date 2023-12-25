@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="mankara.js"></script>
+    <script src="main.js"></script>
+    <title>マンカラ作成課題</title>
+</head>
+
+<body>
+    <div id="mankara">
+        <h1>マンカラ</h1>
+        <p id="ruleinfo">現在のルール：<span></span></p>
+        <div id="field">
+            <table>
+                <tbody id="p2-store" , class="goal">
+                    <tr>
+                        <td>
+                            <div></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody id="main-field">
+                    <tr id="p2">
+                    </tr>
+                    <tr id="p1">
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody id="p1-store" , class="goal">
+                    <tr>
+                        <td>
+                            <div></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p id="info"></p>
+    </div>
+    <div id="background"></div>
+    <div id="menu">
+        <div class="view">
+            <form id="newgame">
+                <p>自陣マス数：<input type="number" id="cell" value="6" min="3" max="8" step="1" required>マス</p>
+                <p>初期の石数：<input type="number" id="stone" value="4" min="2" max="6" step="1" required>個</p>
+                <p>ルール：
+                    <select name="rule" id="rule" required>
+                        <option value="basic">ベーシック</option>
+                        <option value="easy">イージー</option>
+                    </select>
+                </p>
+                <button type="submit">リセットして反映</button>
+            </form>
+        </div>
+    </div>
+    <button type="button" id="menu-button">&lt;</button>
+</body>
+
+</html>

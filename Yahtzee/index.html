@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="dice.js"></script>
+    <script src="diceroll.js"></script>
+    <script src="score.js"></script>
+    <script src="scoretable.js"></script>
+    <script src="main.js"></script>
+    <title>ヨット作成課題</title>
+</head>
+
+<body>
+    <main>
+        <h1>ヨット</h1>
+        <p id="turn-info"><span>ゲームスタート！ </span><span>1</span>Pのターンです。<span>0</span> / 3 回目</p>
+        <div id="game-field" class="flex">
+            <div id="dice-field">
+                <div id="fixed-element">
+                    <div class="area keep k-0">Keep</div>
+                    <div class="area keep k-1">Keep</div>
+                    <div class="area keep k-2">Keep</div>
+                    <div class="area keep k-3">Keep</div>
+                    <div class="area keep k-4">Keep</div>
+                    <div id="view-hands">
+                        <p></p>
+                    </div>
+                </div>
+                <!--JSとCSSでダイスを動的に生成・移動-->
+            </div>
+            <table id="score-board">
+            </table>
+        </div>
+
+        <button type="button" id="diceroll">ダイスロール！</button>
+        <div id="rule-background"></div>
+        <div id="rule">
+            <h2>ルール</h2>
+            <p>サイコロを３回振って手役を作ろう！<br>表がすべて埋まったときに点数が高い人の勝ち！</p>
+            <h2>手順</h2>
+            <ol>
+                <li>
+                    <h3>ダイスロール！でサイコロを振る</h3>
+                    <p>
+                        最初の１回目は運試し！サイコロを５個振ろう！
+                    </p>
+                </li>
+                <li>
+                    <h3>キープするサイコロを決める</h3>
+                    <p>
+                        振り終わったサイコロをクリックすると、その出目をキープすることができるよ！<br>
+                        またキープしたサイコロをクリックすると、キープを解除することもできる。<br>
+                        キープしなかったサイコロを振り直して、より強い手役を作ろう！<br>
+                        振り直しは２回まで！振り直すごとにキープ／キープ解除ができるよ。
+                    </p>
+                </li>
+                <li>
+                    <h3>スコア表を埋める</h3>
+                    <p>
+                        ２回振り直すか、強い手役ができ上がったらスコア表のマスをクリックしてスコアを埋めよう！<br>
+                        もし手役ができなくても、必ずどこか１つは埋めなくてはいけないぞ！<br>
+                        マスを１つ埋めたら、次の人に交代しよう。
+                    </p>
+                </li>
+                <li>
+                    <h3>１～３を繰り返す</h3>
+                    <p>
+                        スコア表のマスがすべて埋まるまで、これをくり返そう！<br>
+                        表が埋まったとき、合計点数が一番高かった人が勝ち！
+                    </p>
+                </li>
+            </ol>
+            <h2>手役</h2>
+            <small>※クリックすると詳細が開きます。</small>
+            <dl>
+                <div>
+                    <dt>
+                        <h3>1 ～ 6</h3>
+                    </dt>
+                    <dd>
+                        <p>
+                            対応する数字の出目の数によって点数が決まる。<br>
+                            （対応する数字） × （出たサイコロの数） 点。<br>
+                            例：出目３が２つ出た場合は 3 × 2 = 6 点
+                        </p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>
+                        <h3>ボーナス</h3>
+                    </dt>
+                    <dd class="hide">
+                        <p>
+                            1 ～ 6 の手役の合計点数が63点以上になると成立。<br>
+                            常に 35 点。<br>
+                            ※３個以上同じ出目を出してスコアを埋めると、合計63点になります。
+                        </p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>
+                        <h3>チョイス</h3>
+                    </dt>
+                    <dd class="hide">
+                        <p>
+                            サイコロ5個の、どんな出目でも成立。<br>
+                            全ての出目の合計が点数になる。
+                        </p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>
+                        <h3>フォーダイス</h3>
+                    </dt>
+                    <dd class="hide">
+                        <div>
+                            <span>
+                                例：
+                                <img src="./svg/6d6.svg" alt="出目１">
+                                <img src="./svg/6d6.svg" alt="出目２">
+                                <img src="./svg/6d6.svg" alt="出目３">
+                                <img src="./svg/6d6.svg" alt="出目４">
+                                ＋好きな出目
+                            </span>
+                        </div>
+                        <p>
+                            サイコロ４個の出目が同じだったら成立。残りの１個はなんでも良い。<br>
+                            全ての出目の合計が点数になる。
+                        </p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>
+                        <h3>フルハウス</h3>
+                    </dt>
+                    <dd class="hide">
+                        <div>
+                            <span>
+                                例：
+                                <img src="./svg/6d2.svg" alt="出目２">
+                                <img src="./svg/6d2.svg" alt="出目２">
+                                <img src="./svg/6d5.svg" alt="出目５">
+                                <img src="./svg/6d5.svg" alt="出目５">
+                                <img src="./svg/6d5.svg" alt="出目５">
+                            </span>
+                        </div>
+                        <p>
+                            ペア（同じ出目2個）とスリーダイス（同じ出目3個）の組み合わせを作ったら成立。<br>
+                            全ての出目の合計が点数になる。
+                        </p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>
+                        <h3>S・ストレート</h3>
+                    </dt>
+                    <dd class="hide">
+                        <div>
+                            <span>
+                                例：
+                                <img src="./svg/6d1.svg" alt="出目１">
+                                <img src="./svg/6d2.svg" alt="出目２">
+                                <img src="./svg/6d3.svg" alt="出目３">
+                                <img src="./svg/6d4.svg" alt="出目４">
+                                ＋好きな出目
+                            </span>
+                        </div>
+                        <p>
+                            サイコロ４個の出目が連続したら成立。残りの一つはなんでも良い。<br>
+                            常に 15 点。<br>
+                            ※１と６は連続とみなしません。
+                        </p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>
+                        <h3>B・ストレート</h3>
+                    </dt>
+                    <dd class="hide">
+                        <div>
+                            <span>
+                                例：
+                                <img src="./svg/6d1.svg" alt="出目１">
+                                <img src="./svg/6d2.svg" alt="出目２">
+                                <img src="./svg/6d3.svg" alt="出目３">
+                                <img src="./svg/6d4.svg" alt="出目４">
+                                <img src="./svg/6d5.svg" alt="出目５">
+                            </span>
+                        </div>
+                        <p>
+                            サイコロ５個の出目が連続したら成立。<br>
+                            常に 30 点。<br>
+                            ※１と６は連続とみなしません。
+                        </p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>
+                        <h3>ヨット</h3>
+                    </dt>
+                    <dd class="hide">
+                        <div>
+                            <span>
+                                例：
+                                <img src="./svg/6d1.svg" alt="出目１">
+                                <img src="./svg/6d1.svg" alt="出目１">
+                                <img src="./svg/6d1.svg" alt="出目１">
+                                <img src="./svg/6d1.svg" alt="出目１">
+                                <img src="./svg/6d1.svg" alt="出目１">
+                            </span>
+                        </div>
+                        <p>
+                            サイコロ５個の出目がそろったら成立。<br>
+                            常に 50 点。
+                        </p>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <button id="rule-button">ルール</button>
+    </main>
+</body>
+
+</html>

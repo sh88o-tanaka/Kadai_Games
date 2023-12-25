@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+@import url("./root.css");
+
+/* ファイル内で使用する変数 */
+:root {
+    --font-base-1 : calc(var(--game-card-base-size) / 2.5);
+    --font-base-2 : calc(var(--game-card-base-size) / 3);
+    --font-base-3 : calc(var(--game-card-base-size) / 3.5);
+}
+/* パネル共通設定 */
+.panel {
+    width: var(--game-card-base-size);
+    height: var(--game-card-base-size);
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    transition: all .1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-size: var(--font-base-1);
+    z-index: 1;
+}
+/* 不可視状態 */
+.panel.invisible {
+    width : 0;
+    height : 0;
+}
+/* p-Xで、各パネルの表示位置を定義。クラスを書き換えることで移動transitionが発生する。 */
+.panel.p-0 {
+    top: calc(calc(0 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(0 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-1 {
+    top: calc(calc(0 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(1 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-2 {
+    top: calc(calc(0 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(2 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-3 {
+    top: calc(calc(0 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(3 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-4 {
+    top: calc(calc(1 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(0 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-5 {
+    top: calc(calc(1 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(1 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-6 {
+    top: calc(calc(1 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(2 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-7 {
+    top: calc(calc(1 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(3 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-8 {
+    top: calc(calc(2 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(0 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-9 {
+    top: calc(calc(2 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(1 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-10 {
+    top: calc(calc(2 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(2 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-11 {
+    top: calc(calc(2 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(3 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-12 {
+    top: calc(calc(3 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(0 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-13 {
+    top: calc(calc(3 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(1 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-14 {
+    top: calc(calc(3 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(2 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+.panel.p-15 {
+    top: calc(calc(3 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+    left: calc(calc(3 * calc(var(--game-card-base-size) + var(--field-card-gap))) + var(--field-outside-padding) + calc(var(--game-card-base-size) / 2));
+}
+
+/* s-X Xの値（パネルの値）で見た目を切り替える。 */
+.panel.s-2 {
+    background-color: #EEE;
+    color: black;
+}
+
+.panel.s-4 {
+    background-color: #ffb990;
+    color: black;
+}
+
+.panel.s-8 {
+    background-color: #7debff;
+    color: black;
+}
+
+.panel.s-16 {
+    background-color: #e770ff;
+    color: black
+}
+
+.panel.s-32 {
+    background-color: #b44141;
+    color: white;
+}
+
+.panel.s-64 {
+    background-color: #968317;
+    color: white;
+}
+
+.panel.s-128 {
+    background-color: #1a695f;
+    color: white;
+}
+
+.panel.s-256 {
+    background-color: #404cb9;
+    color: white;
+}
+
+.panel.s-512 {
+    background-color: #ad3299;
+    color: white;
+}
+
+.panel.s-1024 {
+    background-color: #ff006a;
+    color: white;
+    font-size: var(--font-base-2);
+}
+
+.panel.s-2048 {
+    background-color: #ffe600;
+    color: black;
+    font-size: var(--font-base-2);
+}
+
+.panel.s-4096 {
+    background-color: #00e1ff;
+    color: black;
+    font-size: var(--font-base-2);
+}
+
+.panel.s-8192 {
+    background-color: #7a001b;
+    color: white;
+    font-size: var(--font-base-2);
+}
+
+.panel.s-16384 {
+    background-color: #505050;
+    color: white;
+    font-size: var(--font-base-3);
+}
+
+.panel.s-32768 {
+    background-color: #553b1a;
+    color: white;
+    font-size: var(--font-base-3);
+}
+
+.panel.s-65536 {
+    background-color: #62146d;
+    color: white;
+    font-size: var(--font-base-3);
+}
+
+.panel.s-131072 {
+    background-color: #000000;
+    color: white;
+    font-size: calc(var(--game-card-base-size) / 4);
+}
+
+/* 合体時に大きさを変更することで、拡縮transitionが発生する。 */
+.panel.union {
+    width : calc(var(--game-card-base-size) * 1.2);
+    height : calc(var(--game-card-base-size) * 1.2);
+}

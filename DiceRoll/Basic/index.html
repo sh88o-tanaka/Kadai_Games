@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダイスロール</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="dice.js"></script>
+    <script src="diceroll.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <main>
+        <h1>ダイスロール</h1>
+        <form id="form-0">
+            <label for="dicenum-0">ダイス数</label>
+            <input type="number" id="dicenum-0" min="1" max="100" step="1" value="1">個
+            <button type="submit">ダイスロール！</button>
+        </form>
+        <p id="result-0">
+            ここにダイスロール結果を表示します。
+        </p>
+        <div id="diceroll-0">
+        </div>
+    </main>
+</body>
+</html>

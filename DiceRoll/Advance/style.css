@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+:root {
+    --dice-size : 100px;
+
+}
+
+*,
+*::after,
+*::before {
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+body {
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height : 100vh;
+    border : solid #CCCCCC88;
+    border-width : 0 1px;
+    padding : 20px 20px 0;
+    gap : 10px;
+}
+form > input[type="number"]{
+    padding : 10px;
+    margin : 0 5px;
+    font-size : 1.3rem;
+}
+form > button {
+    padding : 10px;
+    font-size : 1.3rem;
+    border : 0;
+    border-radius : 50vmin;
+    color : white;
+    background-color: rgb(138, 43, 226);
+    transition: background-color 0.1s;
+    cursor: pointer;
+}
+form > button:hover {
+    background-color: rgba(138, 43, 226, 0.75);
+}
+
+form > input[type="checkbox"] {
+    margin-left : 10px;
+    cursor: pointer;
+}
+form > label {
+    cursor: pointer;
+}
+
+#result-0,#result-1 {
+    font-size : 1.1rem;
+}
+
+img.dice {
+    width : var(--dice-size);
+    height: var(--dice-size);
+}

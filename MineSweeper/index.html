@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="event.js"></script>
+    <script src="panel.js"></script>
+    <script src="board.js"></script>
+    <script src="mine-sweeper.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>マインスイーパー</h1>
+        <div id="mine-sweeper">
+            <div id="info">
+                <div id="remain-flag">000</div>
+<!--                <button id="reset">reset</button>-->
+                <button id="reset">😃</button>
+                <div id="time-count">000</div>
+            </div>
+            <table id="root">
+
+            </table>
+        </div>
+    </main>
+    <div id="menu-background"></div>
+    <div id="rule-background"></div>
+    <div id="menu">
+        <form id="setting">
+            <p>高さマス数：</p><p><input type="number" id="y-panels" min="5" max="20" value="10" step="1" required>マス</p>
+            <p>幅マス数：</p><p><input type="number" id="x-panels" min="5" max="20" value="10" step="1" required>マス</p>
+            <p>地雷数：</p><p><input type="number" id="mine" min="1" max="399" value="10" step="1" required>個</p>
+            <button type="submit">リセットして反映</button>
+        </form>
+    </div>
+    <div id="rule">
+        <h2>ルール</h2>
+        <p>マス目の中には地雷が埋まっています。<br>地雷を踏まないようにマスを開け、全てを探し出したらゲームクリア！</p>
+        <h2>操作</h2>
+        <dl>
+            <div>
+                <dt><h3>左クリック</h3></dt>
+                <dd><p>その1マスを開けます。地雷が出たらゲームオーバー。<br>数字は「そのマスの周囲８マスにどれだけ地雷があるか」を表しています。<br>近くに地雷があるので慎重に考えよう！</p></dd>
+            </div>
+            <div>
+                <dt><h3>開いていないマスを右クリック</h3></dt>
+                <dd><p>地雷がありそうなところに旗を立てます。<br>開けられないように保護することができます。</p></dd>
+            </div>
+            <div>
+                <dt><h3>数字をダブルクリック</h3></dt>
+                <dd><p>周囲８マスに、「その数字と同じ数だけ」旗が存在するときに、<br>周囲８マスの中で旗以外のマスを開けます。<br>安全なマスを開いてくれるので便利！<br>ただし、<strong>推理が間違っていたら地雷も開いてしまうので注意！</strong></p></dd>
+            </div>
+        </dl>
+        <h2>表示について</h2>
+        <dl>
+            <div>
+                <dt><h3>左 … 残り旗数</h3></dt>
+                <dd><p>探す地雷の数から、現在立てている旗の数を引いたもの。</p></dd>
+            </div>
+            <div>
+                <dt><h3>中央 … リセットボタン</h3></dt>
+                <dd><p>ゲームを初期状態に戻します。地雷の位置もリセットされます。</p></dd>
+            </div>
+            <div>
+                <dt><h3>右 … 経過時間</h3></dt>
+                <dd><p>最初にマスを開いてからの経過時間（秒）。999秒までカウント。</p></dd>
+            </div>
+        </dl>
+    </div>
+    <button id="menu-button"><span>&lt;</span>&nbsp;⚙️&nbsp;設定</button>
+    <button id="rule-button"><span>&lt;</span>&nbsp;操作方法</button>
+
+</body>
+
+</html>

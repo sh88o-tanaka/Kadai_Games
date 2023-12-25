@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, #info, button {
+    margin : 10px;
+    text-align: center;
+}
+
+#play-field-container {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+#view-padding {
+    padding : 20px;
+    background-color: bisque;
+}
+
+table {
+    border-spacing: 0;
+}
+
+#view {
+    border : 0.5px solid black;
+}
+td {
+    width : 40px;
+    height : 40px;
+}
+#view td {
+    border: 0.5px solid black;
+}
+
+#play-field {
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border : 0.5px solid rgba(255,0,0,0%);
+}
+#play-field td {
+    border : 0.5px solid rgba(255,0,0,0%);
+    cursor: pointer;
+    border-radius : 50%;
+    transition: background-color 0.3s;
+}
+#play-field td:hover {
+    background-color: rgba(255, 192, 203,75%);
+}
+#play-field .stone1, #play-field .stone1:hover {
+    background-color: black;
+}
+#play-field .stone2, #play-field .stone2:hover {
+    background-color: white;
+}
+#reset {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border : 0;
+    background-color:darkred;
+    cursor: pointer;
+    color : white;
+    transition: opacity 0.5s;
+}
+#reset:hover {
+    opacity: 0.8;
+}
+#reset:active {
+    background-color: purple;
+}

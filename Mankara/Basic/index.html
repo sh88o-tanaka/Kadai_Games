@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="mankara.js"></script>
+    <script src="main.js"></script>
+    <title>マンカラ解答例</title>
+</head>
+<body>
+    <section id="game-field">
+        <h1>マンカラ</h1>
+        <div id="field">
+            <div id="p2goal" class="goal"></div>
+            <div id="pockets">
+                <div id="p2pocket">
+                </div>
+                <div id="p1pocket">
+                </div>
+            </div>
+            <div id="p1goal" class="goal"></div>
+        </div>
+        <p id="info">先手の番です。</p>
+    </section>
+    <div id="menu-background"></div>
+    <section id="menu">
+        <form id="setting">
+            <p>ポケットの数：<input type="number" id="pocket-num" min="3" max="8" value="6" step="1" required>個</p>
+            <p>初期石の数：<input type="number" id="stone-num" min="2" max="6" value="4" step="1" required>個</p>
+            <button type="submit">リセットして反映</button>
+        </form>
+    </section>
+    <button id="menu-button"><p>&lt;</p></button>
+</body>
+</html>

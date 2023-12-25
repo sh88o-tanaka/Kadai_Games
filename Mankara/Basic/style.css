@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+/* 変数 */
+:root {
+    --pocket-size : 100px;
+    --pocket-margin : 2px;
+    --goal-size : calc((var(--pocket-size) + var(--pocket-margin)) * 2);
+    --clickable-transition : background-color 0.3s;
+    --button-bg-color : rgb(151, 58, 238);
+    --button-bg-hover-color : rgb(175, 94, 250);
+}
+
+* {
+    box-sizing: border-box;
+    margin : 0;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* タイトル */
+h1 {
+    margin : 30px 0 20px;
+}
+
+/* ゲームフィールド、情報 */
+#game-field {
+    width : fit-content;
+    display: flex;
+    flex-direction: column;
+    margin : 0 auto;
+}
+
+#field {
+    display: flex;
+}
+
+#pockets {
+    margin : 0 var(--pocket-margin);
+}
+
+#p2pocket, #p1pocket {
+    display : flex;
+}
+div.pocket {
+    margin : var(--pocket-margin);
+}
+
+div.goal, div.pocket {
+    display : flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border : 1px black solid;
+    font-size: 20px;
+}
+
+div.goal {
+    width : var(--goal-size);
+    min-height : var(--goal-size);
+    margin : var(--pocket-margin) 0;
+}
+div.pocket {
+    width : var(--pocket-size);
+    min-height : var(--pocket-size);
+    transition : var(--clickable-transition);
+}
+
+div.goal > p, div.pocket > p {
+    line-height: 1em;
+}
+
+div.pocket.clickable, div.pocket.clickable * {
+    cursor: pointer;
+}
+
+div.pocket.clickable:hover {
+    background-color : pink;
+}
+
+#info {
+    align-self: center;
+    margin : 20px;
+}
+
+/* メニュー表示ボタン */
+#menu-button {
+    position : absolute;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    right : 20%;
+    bottom : 10%;
+    width : 80px;
+    height : 80px;
+    border : 0;
+    border-radius: 50%;
+    background-color : var(--button-bg-color);
+    color : white;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px black;
+    transition : var(--clickable-transition);
+}
+#menu-button:hover {
+    background-color : var(--button-bg-hover-color);
+}
+
+#menu-background {
+    position : absolute;
+    background-color : #000000;
+    top : 0;
+    left : 0;
+    width : 0;
+    height : 0;
+    opacity : 0;
+    transition : opacity 0.3s;
+}
+#menu-background.visible {
+    width : 100%;
+    height: 100%;
+    opacity : 0.5;
+}
+
+#menu {
+    position : absolute;
+    top : 0;
+    bottom : 0;
+    left : 110%;
+    width : 50%;
+    background-color: white;
+    transition: left 0.3s;
+    box-shadow: 0px 0px 10px 0px black;
+}
+#menu.visible {
+    left : 50%;
+}
+#setting {
+    margin : 50px;
+}
+#setting > * {
+    margin : 10px;
+    font-size : 1.1em;
+}
+#setting input {
+    padding : 7px;
+    margin : 0 5px;
+    font-size : inherit;
+}
+
+#setting > button {
+    background-color :var(--button-bg-color);
+    color : white;
+    padding : 10px 20px;
+    border : 0;
+    border-radius : 20px;
+    transition : var(--clickable-transition);
+    cursor: pointer;
+}
+#setting > button:hover {
+    background-color :var(--button-bg-hover-color);
+}

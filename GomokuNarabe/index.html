@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五目並べ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="global.js"></script>
+    <script src="gomoku.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="flex-column">
+        <h1>五目並べ</h1>
+        <p id="info">黒の番です。</p>    
+    </div>
+    <div id="play-field-container">
+        <div id="view-padding">
+            <table id="view">
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <table id="play-field">
+            <tbody>
+                <tr data-row="1">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="2">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="3">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="4">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="5">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="6">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="7">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="8">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="9">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="10">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="11">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="12">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="13">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="14">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="15">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="16">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="17">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="18">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+                <tr data-row="19">
+                    <td data-column="1"></td>
+                    <td data-column="2"></td>
+                    <td data-column="3"></td>
+                    <td data-column="4"></td>
+                    <td data-column="5"></td>
+                    <td data-column="6"></td>
+                    <td data-column="7"></td>
+                    <td data-column="8"></td>
+                    <td data-column="9"></td>
+                    <td data-column="10"></td>
+                    <td data-column="11"></td>
+                    <td data-column="12"></td>
+                    <td data-column="13"></td>
+                    <td data-column="14"></td>
+                    <td data-column="15"></td>
+                    <td data-column="16"></td>
+                    <td data-column="17"></td>
+                    <td data-column="18"></td>
+                    <td data-column="19"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="flex-column">
+        <button id="reset">リセット</button>
+    </div>
+
+</body>
+
+</html>

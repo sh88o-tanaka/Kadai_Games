@@ -1,0 +1,10 @@
+/**
+この内容のjsconfig.jsonがあると、VSCodeの補完機能でjQuery関連のプロパティ・メソッドが参照できるようになります。
+*/
+{
+    "typeAcquisition": {
+        "include": [
+            "jquery",
+        ]
+    }
+}

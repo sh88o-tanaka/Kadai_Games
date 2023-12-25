@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 先読み処理-->
+    <link rel="preload" href="img/default.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="img/thumbnail/default.jpg" as="image" type="image/jpeg">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="panel.js"></script>
+    <script src="panelmanager.js"></script>
+    <script src="slidepazzle.js"></script>
+
+    <title>スライドパズル作成課題</title>
+</head>
+
+<body>
+    <section>
+        <h1>スライドパズル</h1>
+        <div id="game-field">
+        </div>
+        <button id="reset">シャッフル</button>
+    </section>
+    <div id="menu-background"></div>
+    <div id="menu">
+        <form id="setting">
+            <p>縦パネル枚数：<input type="number" id="y-panels" min="2" max="6" value="3" step="1" required>枚</p>
+            <p>横パネル枚数：<input type="number" id="x-panels" min="2" max="6" value="3" step="1" required>枚</p>
+            <!-- 画像一覧領域で選択したサムネイルに対応する実画像のパスを格納する。submitイベント以後でその値を読み取る -->
+            <input type="hidden" id="play-src" value="img/default.jpg">
+            <button type="submit">リセットして反映</button>
+        </form>
+        <p>画像一覧</p>
+        <div id="play-images">
+            <div class="play-img">
+                <img src="img/thumbnail/default.jpg" alt="テスト">
+            </div>
+        </div>
+    </div>
+    <button id="menu-button"><p>&lt;</p></button>
+</body>
+
+</html>

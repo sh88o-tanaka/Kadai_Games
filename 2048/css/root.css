@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/* 各スタイル共通変数 */
+:root {
+    --game-base-background-color: #466d4b;
+    --game-empty-background-color: #244428;
+    --container-padding: 50px;
+    --field-outside-padding: 20px;
+    --field-card-gap: 10px;
+    --min-width: calc(calc(100vw - calc(var(--field-card-gap) * 3) - calc(var(--field-outside-padding) * 2) - calc(var(--container-padding) * 2)) / 4);
+    --game-card-base-size: min(var(--min-width), 120px);
+
+}

@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+:root {
+
+}
+
+* {
+    margin : 0;
+    padding : 0;
+}
+form {
+    display : flex;
+    gap : 10px;
+    margin : 15px;
+}
+
+input {
+    padding : 5px;
+}
+button {
+    padding : 0 20px;
+}
+table {
+    position : relative;
+    margin : 15px;
+    overflow : scroll;
+    table-layout: fixed;
+}
+tbody {
+    position : absolute;
+    width : max-content;
+    top : 0;
+    left : 0;
+}
+td {
+    width : 20px;
+    height : 20px;
+    border : solid 1px black;
+}
+td.live {
+    background-color : darkblue;
+}
