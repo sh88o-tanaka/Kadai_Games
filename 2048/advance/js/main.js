@@ -23,11 +23,9 @@ $(function () {
             if (!ok) throw new Error(`引数 ${num} はGameStateで定義されていません。`);
             //ビット演算「XOR」を使い、渡された引数のビットだけを反転させる。
             this.#state ^= num;
-            console.log("変更後GameState : " + this.#state.toString(2));
         }
-        //キー押下イベントを認めてよいかを判定する。
-        isPermitKeyDownEvent() {
-            return this.#state === GameState.FLAGS.GAMING;
+        get state() {
+            return this.#state;
         }
     }
 
@@ -60,8 +58,13 @@ $(function () {
 
     //キーを押下したとき
     $(document).on("keydown", function (ev) {
+        //キー押下イベントを認めてよいかを判定する。
+        function isPermitKeyDownEvent() {
+            return state.state === GameState.FLAGS.GAMING;
+        }
+
         //キー操作禁止状態、同じキーの押しっぱなしは何もしない。
-        if (!state.isPermitKeyDownEvent() || ev.originalEvent.repeat) return;
+        if (!isPermitKeyDownEvent() || ev.originalEvent.repeat) return;
         //許可されるキーだけ実行する。
         if (permitKeys.has(ev.key)) {
             //処理実行中は「アニメーション中」状態に変更する。
@@ -116,7 +119,7 @@ $(function () {
     function saveHighScore() {
         if (highScoreNum < nowScoreNum) {
             hScoreElement.text(nowScoreNum);
-            localStorage.setItem("high-score", nowScoreNum);
+            localStorage.setItem("advance-high-score", nowScoreNum);
         }
     }
     //ゲームの初期化
@@ -127,7 +130,7 @@ $(function () {
         nowScoreNum = 0;
         try {
             //localStorageを使い、ハイスコアを永続的に記録する。
-            highScoreNum = localStorage.getItem("high-score") ?? 0;
+            highScoreNum = localStorage.getItem("advance-high-score") ?? 0;
         }
         catch (e) {
             //localStorageが使えない環境では記録しない。

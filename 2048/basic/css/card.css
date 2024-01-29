@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+@import url("./root.css");
+
+/* ファイル内で使用する変数 */
+:root {
+    --font-base-1 : calc(var(--game-card-base-size) / 2.5);
+    --font-base-2 : calc(var(--game-card-base-size) / 3);
+    --font-base-3 : calc(var(--game-card-base-size) / 3.5);
+}
+/* パネル共通設定 */
+.grid {
+    font-size: var(--font-base-1);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* s-X Xの値（パネルの値）で見た目を切り替える。 */
+.grid.s-2 {
+    background-color: #EEE;
+    color: black;
+}
+
+.grid.s-4 {
+    background-color: #ffb990;
+    color: black;
+}
+
+.grid.s-8 {
+    background-color: #7debff;
+    color: black;
+}
+
+.grid.s-16 {
+    background-color: #e770ff;
+    color: black
+}
+
+.grid.s-32 {
+    background-color: #b44141;
+    color: white;
+}
+
+.grid.s-64 {
+    background-color: #968317;
+    color: white;
+}
+
+.grid.s-128 {
+    background-color: #1a695f;
+    color: white;
+}
+
+.grid.s-256 {
+    background-color: #404cb9;
+    color: white;
+}
+
+.grid.s-512 {
+    background-color: #ad3299;
+    color: white;
+}
+
+.grid.s-1024 {
+    background-color: #ff006a;
+    color: white;
+    font-size: var(--font-base-2);
+}
+
+.grid.s-2048 {
+    background-color: #ffe600;
+    color: black;
+    font-size: var(--font-base-2);
+}
+
+.grid.s-4096 {
+    background-color: #00e1ff;
+    color: black;
+    font-size: var(--font-base-2);
+}
+
+.grid.s-8192 {
+    background-color: #7a001b;
+    color: white;
+    font-size: var(--font-base-2);
+}
+
+.grid.s-16384 {
+    background-color: #505050;
+    color: white;
+    font-size: var(--font-base-3);
+}
+
+.grid.s-32768 {
+    background-color: #553b1a;
+    color: white;
+    font-size: var(--font-base-3);
+}
+
+.grid.s-65536 {
+    background-color: #62146d;
+    color: white;
+    font-size: var(--font-base-3);
+}
+
+.grid.s-131072 {
+    background-color: #000000;
+    color: white;
+    font-size: calc(var(--game-card-base-size) / 4);
+}
