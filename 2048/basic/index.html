@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/global.js"></script>
+    <script src="js/vec.js"></script>
+    <script src="js/2048.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="game-info">
+            <h1>2048</h1>
+            <div id="score-boards">
+                <div class="score-board">
+                    <p>ハイスコア</p>
+                    <p id="high-score">0</p>
+                </div>
+                <div class="score-board">
+                    <p>スコア</p>
+                    <p id="score">0</p>
+                </div>
+            </div>
+        </div>
+        <div id="game-field">
+            <div id="field">
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div id="gameover">
+                    <div>
+                        <p>ゲームオーバー！</p>
+                        <p>スコア : <span class="result"></span></p>
+                        <button class="restart">リスタート</button>
+                    </div>
+                </div>
+                <div id="gameclear">
+                    <div>
+                        <p>ゲームクリア！</p>
+                        <p>スコア : <span class="result"></span></p>
+                        <div>
+                            <button class="continue">つづける</button>
+                            <button class="restart">リスタート</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="restart">リスタート</button>
+        <div id="rule-background"></div>
+        <div id="rule">
+            <h2>ルール</h2>
+            <p>
+                同じ数字のパネルを合体させて数字を大きくしよう！<br>
+                目指せ<b>2048</b>！
+            </p>
+            <h2>操作方法</h2>
+            <p>※キーボード操作のみ受け付けます。</p>
+            <p><u>上下左右キー（またはWSADキー）</u>：<br>押した方向に全てのパネルを寄せます。<br>同じパネルが重なると合体して数値が2倍になります。</p>
+        </div>
+        <button id="rule-button">ルール</button>
+    </div>
+</body>
+
+</html>

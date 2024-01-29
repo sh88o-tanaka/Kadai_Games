@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Montserrat:wght@500;600;800&display=swap');
+@import url("./root.css");
+@import url("./card.css");
+
+/* ファイル内で使用する変数 */
+:root {
+    --text-shadow-color: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#container {
+    width: min-content;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    padding: 0 var(--container-padding);
+}
+
+#game-info,
+#game-field {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Aoboshi One', serif;
+}
+
+#game-info {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#score-boards {
+    display: flex;
+    gap: 10px;
+}
+
+.score-board {
+    min-width: 140px;
+    border-radius: 10px;
+    background-color: var(--game-base-background-color);
+    color: white;
+    padding: 10px 15px;
+}
+
+.score-board>* {
+    text-align: center;
+}
+
+#score,
+#high-score {
+    font-size: 1.3rem;
+}
+
+#game-field {
+    display: flex;
+    justify-content: center;
+}
+
+#field {
+    position: relative;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    width: min-content;
+    height: min-content;
+    padding: var(--field-outside-padding);
+    gap: var(--field-card-gap);
+    background-color: var(--game-base-background-color);
+    border-radius: 10px;
+}
+
+.grid {
+    width: var(--game-card-base-size);
+    height: var(--game-card-base-size);
+    border-radius: 5px;
+    background-color: var(--game-grid-background-color);
+}
+
+#gameover,
+#gameclear {
+    position: absolute;
+    color: #fff;
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+}
+
+#gameover {
+    background-color: #221122AA;
+}
+
+#gameclear {
+    background-color: #66660099;
+}
+
+#gameover.visible,
+#gameclear.visible {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    z-index: 2;
+    transition: opacity .2s;
+}
+
+#gameover>div,
+#gameclear>div {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#gameover>div>p:first-child,
+#gameclear>div>p:first-child {
+    font-size: 3.0rem;
+}
+
+#gameover>div>p:nth-child(2),
+#gameclear>div>p:nth-child(2) {
+    font-size: 1.6rem;
+}
+
+#gameclear>div>div {
+    display : flex;
+    gap : 20px;
+}
+
+button.restart,
+button.continue {
+    margin: 20px;
+    padding: 10px 15px;
+    font-size: 1.3rem;
+    border: 1px solid var(--game-base-background-color);
+    border-radius: 10px;
+    font-family: 'Aoboshi One', serif;
+    background-color: #FFF;
+    transition: all .3s;
+}
+
+button.restart:hover,
+button.continue:hover
+{
+    color: #FFF;
+    background-color: var(--game-base-background-color);
+}
+
+#rule-background {
+    position: fixed;
+    width : 0;
+    height : 0;
+    top : 0;
+    left : 0;
+    background-color: #000000;
+    z-index: 2;
+    opacity : 0;
+    transition: opacity 0.3s, width 0.3s step-end, height 0.3s step-end;
+}
+
+#rule-background.visible {
+    width : 100vw;
+    height : 100vh;
+    opacity : 0.5;
+    transition: opacity 0.3s, width 0.3s step-start, height 0.3s step-start;
+}
+
+#rule {
+    overflow-y: hidden;
+    position: absolute;
+    background-color: white;
+    top : 110%;
+    max-height : 0;
+    padding-left : 15px;
+    padding-right : 15px;
+    left:0;
+    right:0;
+    bottom : 0;
+    z-index : 2;
+    transition: top 0.2s ease-in, max-height 0.2s step-end,border 0.2s step-start, padding 0.2s step-start;
+}
+#rule.visible {
+    top:10%;
+    padding: 15px;
+    padding-bottom : 40%;
+    border: 1px solid black;
+    max-height: 100vh;
+    transition: top 0.2s ease-in, max-height 0.2s ease-in,border 0.2s step-end, padding 0.2s step-end;
+}
+#rule-button {
+    position: fixed;
+    bottom : 0;
+    left : 60%;
+    border-radius: 3vmin 3vmin 0 0;
+    font-size: 2rem;
+    padding : 10px 20px 7px;
+    z-index: 3;
+    font-family: 'Aoboshi One', serif;
+    background-color: var(--game-base-background-color);
+    color : #FFF;
+    transition: all .1s;
+    border : 0;
+}
+#rule-button:hover {
+    filter : brightness(125%);
+}
